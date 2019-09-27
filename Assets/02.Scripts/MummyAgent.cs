@@ -53,4 +53,33 @@ public class MummyAgent : Agent
         AddReward(-0.001f);
     }
 
+    void OnTriggerEnter(Collider coll)
+    {
+        //목적지에 도착 : + 보상
+        if (coll.CompareTag("GOAL"))
+        {
+            AddReward(+1.0f);
+            ResetStage();
+        }
+        //벽에 충돌하면 : - 보상
+        if (coll.CompareTag("DEAD_ZONE"))
+        {
+            AddReward(-1.0f);
+            Done();
+        }
+    }
+
+    void ResetStage()
+    {
+        //에이전트의 위치를 변경
+        mummyTr.localPosition = new Vector3(Random.Range(-4.0f, 4.0f)
+                                            , 0.0f
+                                            ,Random.Range(-4.0f, 4.0f));
+
+        //목적지의 위치를 변경
+        goalTr.localPosition =  new Vector3(Random.Range(-4.0f, 4.0f)
+                                            , 0.55f
+                                            ,Random.Range(-4.0f, 4.0f));
+    }
+
 }
