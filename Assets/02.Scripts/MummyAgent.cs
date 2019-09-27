@@ -10,6 +10,7 @@ public class MummyAgent : Agent
     
     public Material goalMt;
     public Material deadMt;
+    public Material originMt;
 
     private Transform mummyTr;  //Agents의 Transform
     private MeshRenderer planeRender;
@@ -18,6 +19,7 @@ public class MummyAgent : Agent
     {
         mummyTr = GetComponent<Transform>();
         planeRender = planeTr.GetComponent<MeshRenderer>();
+        originMt    = planeRender.material;
     }
 
     public override void CollectObservations()
@@ -63,12 +65,16 @@ public class MummyAgent : Agent
         //목적지에 도착 : + 보상
         if (coll.CompareTag("GOAL"))
         {
+            planeRender.material = goalMt;
+
             AddReward(+1.0f);
             ResetStage();
         }
         //벽에 충돌하면 : - 보상
         if (coll.CompareTag("DEAD_ZONE"))
         {
+            planeRender.material = deadMt;
+
             AddReward(-1.0f);
             Done();
         }
@@ -96,6 +102,8 @@ public class MummyAgent : Agent
         goalTr.localPosition =  new Vector3(Random.Range(-4.0f, 4.0f)
                                             , 0.55f
                                             ,Random.Range(-4.0f, 4.0f));
+
+        planeRender.material = originMt;
     }
 
 }
