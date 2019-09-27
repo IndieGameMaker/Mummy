@@ -103,6 +103,11 @@ public class MummyAgent : Agent
                                             , 0.55f
                                             ,Random.Range(-4.0f, 4.0f));
 
+        Invoke("InitMaterial", 0.3f);
+    }
+
+    void InitMaterial()
+    {
         planeRender.material = originMt;
     }
 
