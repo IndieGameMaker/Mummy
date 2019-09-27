@@ -69,6 +69,17 @@ public class MummyAgent : Agent
         }
     }
 
+    void OnTriggerStay(Collider coll)
+    {
+        if (coll.CompareTag("GOAL"))
+            ResetStage();
+    }
+
+    public override void AgentReset()
+    {
+        ResetStage();
+    }
+
     void ResetStage()
     {
         //에이전트의 위치를 변경
