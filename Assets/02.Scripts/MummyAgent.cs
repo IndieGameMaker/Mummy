@@ -55,7 +55,7 @@ public class MummyAgent : Agent
         //이동할 방향 벡터를 계산
         Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
         //에이전트 이동 처리
-        mummyTr.Translate(dir);
+        mummyTr.Translate(dir * Time.deltaTime * 3.0f);
 
         AddReward(-0.001f);
     }

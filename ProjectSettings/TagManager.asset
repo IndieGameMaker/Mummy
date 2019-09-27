@@ -26,6 +26,7 @@ TagManager:
   - badBanana
   - pit
   - DEAD_ZONE
+  - GOAL
   layers:
   - Default
   - TransparentFX
