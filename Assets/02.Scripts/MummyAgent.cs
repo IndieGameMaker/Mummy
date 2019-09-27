@@ -31,5 +31,11 @@ public class MummyAgent : Agent
 
         float norX2 = Mathf.Clamp(dist2.x / 5.0f, -1.0f, +1.0f);
         float norZ2 = Mathf.Clamp(dist2.z / 5.0f, -1.0f, +1.0f); 
+
+        //브레인에 관측 정보를 전달
+        AddVectorObs(norX1);
+        AddVectorObs(norZ1);
+        AddVectorObs(norX2);
+        AddVectorObs(norZ2);
     }
 }
