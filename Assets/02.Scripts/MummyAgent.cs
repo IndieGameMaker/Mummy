@@ -7,12 +7,17 @@ public class MummyAgent : Agent
 {
     public Transform planeTr;  //바닥의 Transform
     public Transform goalTr;   //목적지의 Transform
+    
+    public Material goalMt;
+    public Material deadMt;
 
     private Transform mummyTr;  //Agents의 Transform
+    private MeshRenderer planeRender;
 
     public override void InitializeAgent()
     {
         mummyTr = GetComponent<Transform>();
+        planeRender = planeTr.GetComponent<MeshRenderer>();
     }
 
     public override void CollectObservations()
