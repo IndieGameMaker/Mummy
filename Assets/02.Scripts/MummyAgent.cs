@@ -38,4 +38,19 @@ public class MummyAgent : Agent
         AddVectorObs(norX2);
         AddVectorObs(norZ2);
     }
+
+    //브레인으로 부터 결정된 명령을 전달하는 함수
+    public override void AgentAction(float[] vectorAction, string textAction)
+    {
+        float h = vectorAction[0];
+        float v = vectorAction[1];
+
+        //이동할 방향 벡터를 계산
+        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
+        //에이전트 이동 처리
+        mummyTr.Translate(dir);
+
+        AddReward(-0.001f);
+    }
+
 }
