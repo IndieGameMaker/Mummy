@@ -78,11 +78,14 @@ public class MAgent : Agent
 
     void ResetStage()
     {
-        Debug.Log("Reset Stage");
+        getMushroom = 0;
+        rb.velocity = Vector3.zero;
+
+        StageMgr.instance.InitStage();
     }
 
     public override void AgentReset()
     {
-        Debug.Log("Reset Stage");
+        ResetStage();
     }
 }
