@@ -21,7 +21,7 @@ public class StageMgr : MonoBehaviour
 
     void Start()
     {
-        mushroomPrefab = Resources.Load<GameObject>("MushRoom");
+        mushroomPrefab = Resources.Load<GameObject>("Mushroom");
         monsterPrefab  = Resources.Load<GameObject>("Monster");
         CreateMushroom();   
     }
@@ -33,10 +33,10 @@ public class StageMgr : MonoBehaviour
             GameObject obj = Instantiate<GameObject>(mushroomPrefab, transform);
             obj.name = "MUSHROOM";
             //위치, 각도 설정
-            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0)
+            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0f)
                                     , 0.0f
-                                    , Random.Range(-50.0f, 50.0));
-            Quaternion rot = Quaternion.Enuler(0, Random.Range(0, 360), 0);
+                                    , Random.Range(-50.0f, 50.0f));
+            Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
             obj.transform.localPosition = pos;
             obj.transform.localRotation = rot;
