@@ -71,7 +71,7 @@ public class MAgent : Agent
 
         if (coll.collider.CompareTag("MONSTER"))
         {
-            AddRewared(-1.0f);
+            AddReward(-1.0f);
             Done();
         }
     }
