@@ -55,6 +55,16 @@ public class MAgent : Agent
         }
 
         AddReward(-0.001f);
+
+        if (tr.position.y <= -10.0f)
+        {
+            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0f)
+                        , 0.0f
+                        , Random.Range(-50.0f, 50.0f));
+            Quaternion turn = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            tr.localPosition = pos;
+            tr.localRotation = turn;
+        }
     }
 
     void OnCollisionEnter(Collision coll)
