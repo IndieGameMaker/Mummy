@@ -14,6 +14,8 @@ public class StageMgr : MonoBehaviour
     public int maxMushroom = 30;
     public int maxMonster  = 20;
 
+    public Transform[] agents;
+
     void Awake()
     {
         instance = this;
@@ -23,8 +25,7 @@ public class StageMgr : MonoBehaviour
     {
         mushroomPrefab = Resources.Load<GameObject>("Mushroom");
         monsterPrefab  = Resources.Load<GameObject>("Monster");
-        CreateMushroom();   
-        CreateMonster();
+        InitStage();
     }
 
     void CreateMushroom()
@@ -79,9 +80,26 @@ public class StageMgr : MonoBehaviour
         }
     }
 
+    public void InitAgents()
+    {
+        foreach(var agent in agents)
+        {
+            //위치, 각도 설정
+            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0f)
+                                    , 0.0f
+                                    , Random.Range(-50.0f, 50.0f));
+            Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
+
+            agent.localPosition = pos;
+            agent.localRotation = rot;            
+        }
+
+    }
+
     public void InitStage()
     {
         CreateMonster();
         CreateMushroom();
+        InitAgents();
     }
 }
