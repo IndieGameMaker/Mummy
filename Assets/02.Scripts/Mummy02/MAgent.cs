@@ -11,7 +11,7 @@ public class MAgent : Agent
     private int getMushroom = 0;
 
     //이동 속도
-    public float moveSpeed = 5.0f;
+    private float moveSpeed = 10.0f;
 
     //광선의 거리
     public float rayDistance = 50.0f;
@@ -51,7 +51,7 @@ public class MAgent : Agent
         //일정 속도이상이면 감속
         if (rb.velocity.sqrMagnitude > 5.0f)
         {
-            rb.velocity *= 0.9f;
+            rb.velocity *= 0.8f;
         }
 
         AddReward(-0.001f);
@@ -88,8 +88,8 @@ public class MAgent : Agent
 
     void ResetStage()
     {
-        getMushroom = 0;
-        rb.velocity = Vector3.zero;
+        // getMushroom = 0;
+        // rb.velocity = Vector3.zero;
 
         StageMgr.instance.InitStage();
     }
