@@ -8,6 +8,7 @@ public class MAgent : Agent
     private Transform tr;
     private Rigidbody rb;
     private RayPerception3D ray;
+    private int getMushroom = 0;
 
     //이동 속도
     public float moveSpeed = 5.0f;
@@ -52,5 +53,36 @@ public class MAgent : Agent
         {
             rb.velocity *= 0.9f;
         }
+
+        AddReward(-0.001f);
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("MUSHROOM"))
+        {
+            AddReward(+1.0f);
+            Destroy(coll.gameObject);
+            if (++getMushroom == StageMgr.instance.maxMushroom)
+            {
+                ResetStage();
+            }
+        }
+
+        if (coll.collider.CompareTag("MONSTER"))
+        {
+            AddRewared(-1.0f);
+            Done();
+        }
+    }
+
+    void ResetStage()
+    {
+        Debug.Log("Reset Stage");
+    }
+
+    public override void AgentReset()
+    {
+        Debug.Log("Reset Stage");
     }
 }
