@@ -10,6 +10,10 @@ public class StageMgr : MonoBehaviour
     private GameObject mushroomPrefab;
     private GameObject monsterPrefab;
 
+    //버섯, 몬스터의 최대 생성 갯수
+    public int maxMushroom = 30;
+    public int maxMonster  = 20;
+
     void Awake()
     {
         instance = this;
@@ -18,12 +22,29 @@ public class StageMgr : MonoBehaviour
     void Start()
     {
         mushroomPrefab = Resources.Load<GameObject>("MushRoom");
-        monsterPrefab  = Resources.Load<GameObject>("Monster");        
+        monsterPrefab  = Resources.Load<GameObject>("Monster");
+        CreateMushroom();   
     }
 
-    // Update is called once per frame
-    void Update()
+    void CreateMushroom()
     {
-        
+        for (int i=0; i<maxMushroom; i++)
+        {
+            GameObject obj = Instantiate<GameObject>(mushroomPrefab, transform);
+            obj.name = "MUSHROOM";
+            //위치, 각도 설정
+            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0)
+                                    , 0.0f
+                                    , Random.Range(-50.0f, 50.0));
+            Quaternion rot = Quaternion.Enuler(0, Random.Range(0, 360), 0);
+
+            obj.transform.localPosition = pos;
+            obj.transform.localRotation = rot;
+        }
+    }
+
+    void CreateMonster()
+    {
+
     }
 }
