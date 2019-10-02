@@ -1,28 +1,11 @@
 {
     "name": "MacBLAS",
     "references": [],
-    "includePlatforms": [],
-    "excludePlatforms": [
-        "Android",
-        "BJM",
+    "optionalUnityReferences": [],
+    "includePlatforms": [
         "Editor",
-        "iOS",
-        "LinuxStandalone64",
-        "Lumin",
-        "macOSStandalone",
-        "PS4",
-        "Switch",
-        "tvOS",
-        "WSA",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64",
-        "XboxOne"
+        "macOSStandalone"
     ],
-    "allowUnsafeCode": true,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": []
+    "excludePlatforms": [],
+    "allowUnsafeCode": true
 }
