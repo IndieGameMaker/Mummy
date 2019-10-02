@@ -29,6 +29,15 @@ public class StageMgr : MonoBehaviour
 
     void CreateMushroom()
     {
+        //기존의 버섯을 모두 삭제
+        foreach (var obj in GetComponentsInChildren<Transform>())
+        {
+            if (obj.name == "MUSHROOM")
+            {
+                Destroy(obj.gameObject);
+            }
+        }
+
         for (int i=0; i<maxMushroom; i++)
         {
             GameObject obj = Instantiate<GameObject>(mushroomPrefab, transform);
@@ -46,6 +55,15 @@ public class StageMgr : MonoBehaviour
 
     void CreateMonster()
     {
+        //기존의 몬스터을 모두 삭제
+        foreach (var obj in GetComponentsInChildren<Transform>())
+        {
+            if (obj.name == "MONSTER")
+            {
+                Destroy(obj.gameObject);
+            }
+        }
+
         for (int i=0; i<maxMonster; i++)
         {
             GameObject obj = Instantiate<GameObject>(monsterPrefab, transform);
@@ -59,5 +77,11 @@ public class StageMgr : MonoBehaviour
             obj.transform.localPosition = pos;
             obj.transform.localRotation = rot;
         }
+    }
+
+    public void InitStage()
+    {
+        CreateMonster();
+        CreateMushroom();
     }
 }
