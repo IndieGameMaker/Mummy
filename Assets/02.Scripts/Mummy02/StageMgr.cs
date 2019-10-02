@@ -24,6 +24,7 @@ public class StageMgr : MonoBehaviour
         mushroomPrefab = Resources.Load<GameObject>("Mushroom");
         monsterPrefab  = Resources.Load<GameObject>("Monster");
         CreateMushroom();   
+        CreateMonster();
     }
 
     void CreateMushroom()
@@ -45,6 +46,18 @@ public class StageMgr : MonoBehaviour
 
     void CreateMonster()
     {
+        for (int i=0; i<maxMonster; i++)
+        {
+            GameObject obj = Instantiate<GameObject>(monsterPrefab, transform);
+            obj.name = "MONSTER";
+            //위치, 각도 설정
+            Vector3 pos = new Vector3(Random.Range(-50.0f, 50.0f)
+                                    , 0.0f
+                                    , Random.Range(-50.0f, 50.0f));
+            Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
+            obj.transform.localPosition = pos;
+            obj.transform.localRotation = rot;
+        }
     }
 }

@@ -801,6 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a931cb92a3b4277a42dd158e0075f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMushroom: 30
+  maxMonster: 20
 --- !u!1 &2057080008
 GameObject:
   m_ObjectHideFlags: 0
