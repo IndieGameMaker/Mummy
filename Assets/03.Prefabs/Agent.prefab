@@ -1469,3 +1469,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ecdafdb8a55478d97017996b856730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brain: {fileID: 11400000, guid: 0f67b598c327f452dad736bb921934e1, type: 2}
+  agentParameters:
+    agentCameras: []
+    agentRenderTextures: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  moveSpeed: 5
+  rayDistance: 50
+  rayAngles:
+  - 20
+  - 45
+  - 70
+  - 90
+  - 110
+  - 135
+  - 160
+  detectObjects:
+  - MUSHROOM
+  - MONSTER
+  - WALL
+  - AGENT
