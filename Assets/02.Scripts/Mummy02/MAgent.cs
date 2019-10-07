@@ -20,8 +20,6 @@ public class MAgent : Agent
     //광선의 검출 대상 (4개의 검출 대상)
     public string[] detectObjects = {"MUSHROOM", "MONSTER", "WALL", "AGENT"};
 
-    public bool isVectorObs = true;
-
     public override void InitializeAgent()
     {
         base.InitializeAgent();
@@ -33,8 +31,6 @@ public class MAgent : Agent
 
     public override void CollectObservations()
     {
-        if (isVectorObs)
-        {
             //광선 7 , 대상 (4 + 2)
             //Observation Size = 7 * 6 = 42
             AddVectorObs(ray.Perceive(rayDistance, rayAngles, detectObjects, 0.5f, 0.5f));
@@ -42,7 +38,6 @@ public class MAgent : Agent
             Vector3 localVelocity = tr.InverseTransformDirection(rb.velocity);
             AddVectorObs(localVelocity.x);
             AddVectorObs(localVelocity.z);
-        }
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
